@@ -1,31 +1,21 @@
 ﻿using System;
 
-class Program
+class Interval
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        double[] testValues = { -20, -10, -2, -1, 0, 1, 1.5, 2, 3, 4 };
+        Console.Write("Enter a real number: ");
+        double x = double.Parse(Console.ReadLine());
 
-        foreach (double value in testValues)
+        bool belongsToI = (x >= 2 && x < 3) || (x >= 0 && x <= 1) || (x >= -10 && x <= -2);
+
+        if (belongsToI)
         {
-            Console.Write($"Enter a real number: {value} ");
-            if (IsInInterval(value))
-                Console.WriteLine("x belongs to I");
-            else
-                Console.WriteLine("x does not belong to I");
+            Console.WriteLine($"x belongs to I");
         }
-    }
-
-    static bool IsInInterval(double x)
-    {
-        // Define the intervals
-        double[] interval1 = { 2, 3 };
-        double[] interval2 = { 0, 1 };
-        double[] interval3 = { -10, -2 };
-
-        // Check if x belongs to any of the intervals
-        return (x >= interval1[0] && x < interval1[1]) ||
-               (x >= interval2[0] && x <= interval2[1]) ||
-               (x >= interval3[0] && x <= interval3[1]);
+        else
+        {
+            Console.WriteLine($"x does not belong to I");
+        }
     }
 }
